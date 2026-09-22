@@ -1,0 +1,894 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spill Keranjang Aku</title>
+    <link rel="icon" type="logo" href="logo2.webp" />
+    <!-- Tailwind CSS untuk Desain Responsif -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome untuk Icon (Tetap dipakai untuk ikon panah & sosmed) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+
+      .scrollable-categories {
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: #cbd5e1 #f1f5f9;
+      }
+
+      .scrollable-categories::-webkit-scrollbar {
+        width: 6px;
+      }
+      .scrollable-categories::-webkit-scrollbar-track {
+        background: #f1f5f9;
+        border-radius: 8px;
+      }
+      .scrollable-categories::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 8px;
+      }
+      .scrollable-categories::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+      }
+    </style>
+  </head>
+  <body class="bg-gradient-to-br from-slate-50 via-pink-50 to-orange-50 h-screen text-slate-800 flex flex-col justify-between overflow-hidden">
+    <!-- Header / Profil Section -->
+    <header class="w-full max-w-2xl mx-auto px-4 pt-6 pb-4 text-center flex-shrink-0">
+      <div class="relative w-20 h-20 md:w-24 md:h-24 mx-auto mb-3">
+        <img src="logo2.webp" alt="Profile Picture" class="w-full h-full object-cover rounded-full shadow-md border-4 border-white" />
+        <div class="absolute bottom-0 right-0 bg-pink-500 text-white p-1 rounded-full text-xs shadow">
+          <i class="fa-solid fa-check"></i>
+        </div>
+      </div>
+
+      <h1 class="text-lg md:text-xl font-bold text-slate-900">Coquette Finds🌸</h1>
+      <p class="text-xs md:text-sm text-slate-500 mt-1 max-w-md mx-auto leading-relaxed">
+        🎀 just a coquette girl with a shopping addiction <br />
+        🛍️ cute finds & pretty things I love <br />
+        🩷 little treats, big happiness <br />
+        ✨ shop my favorite picks below ♡ <br />
+        🌸🌸🌸
+      </p>
+
+      <!-- akun sosmed -->
+      <div class="flex justify-center gap-4 mt-3 text-slate-600">
+        <a href="https://www.tiktok.com/@coqshop_" class="hover:text-pink-600 transition text-lg"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://collshp.com/cf01_?share_channel_code=1" class="hover:text-orange-600 transition text-lg"><i class="fa-solid fa-bag-shopping"></i></a>
+        <a href="#" class="hover:text-purple-600 transition text-lg"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="hover:text-purple-600 transition text-lg"><i class="fa-brands fa-facebook"></i></a>
+      </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="w-full max-w-xl mx-auto px-4 flex-grow scrollable-categories py-2 my-2">
+      <div class="space-y-4 pr-1" id="categoryContainer"></div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-4 text-xs text-slate-400 border-t border-slate-200/50 flex-shrink-0">
+      <p>&copy; 2026 • Curated with ❤️ Riyu (Rijal & Yunia)</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      const categoryData = [
+        {
+          id: 'outfit',
+          name: 'Outfit & Fashion',
+          // Ganti string fontawesome dengan tag <img> dan arahkan ke file gambar Anda (PNG / WebP)
+          icon: '<img src="woman-clothes.webp" class="w-5 h-5 object-contain" />',
+          items: [
+            {
+              title: '1. Girl Dress | Mini Dress',
+              desc: 'Adem dipakai seharian, cocok untuk outdoor',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/50YtYDb7eF?share_channel_code=1',
+              image: 'https://down-id.img.susercontent.com/file/sg-11134201-825a2-mr76efz5mih1a7@resize_w450_nl.webp',
+            },
+            {
+              title: '2. Setelan Wanita Dayli | one set rayon rempel',
+              desc: 'cocok untuk outfit sehari hari',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/7VGFA2SkR6',
+              image: 'https://down-id.img.susercontent.com/file/id-11134207-822wn-mp2qnk3pisxs51@resize_w450_nl.webp',
+            },
+            {
+              title: '3. Blouse Polkadot Wanita Asimetris Katun Crincle Lengan Panjang Korean Style',
+              desc: 'cocok untuk outfit outdor',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/3Vk5yqQwrT',
+              image: 'https://down-id.img.susercontent.com/file/id-11134207-81ztp-mqukvumvhyj15c@resize_w450_nl.webp',
+            },
+            {
+              title: '4. ESCA.LOVA Outer Blouse Pantai Summer Atasan Beach Korean Style Kondangan',
+              desc: 'cocok untuk outdor ke pantai / kondangan',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/3Vk5yqQwrT',
+              image: 'https://down-id.img.susercontent.com/file/id-11134207-81ztn-mfdqmoe0fhu3b1.webp',
+            },
+            {
+              title: '5. LBITZ - Yura Blouse Atasan Wanita Katun Toyobo Polos mix Polkadot Blouse Wanita Lucu',
+              desc: 'cocok untuk ngampus & ngedate',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/4VcdAbUw5c',
+              image: 'https://down-id.img.susercontent.com/file/id-11134201-81ztp-msbwz6r6jfnpbb@resize_w450_nl.webp',
+            },
+            {
+              title: '6.louse Wanita Puff Lengan Model Korea',
+              desc: 'Desain Elegan dan Nyaman',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/5AsJxVQEZ5',
+              image: 'https://down-id.img.susercontent.com/file/id-11134207-822wq-mmbi9t4ifj0i15@resize_w450_nl.webp',
+            },
+            {
+              title: '7. GDTIMA Celana Wanita Highwaist Celana Baggy Pants Celana Panjang',
+              desc: ' Korean, Minimalis, Street Style',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/6L4HLbJ5N2',
+              image: 'https://down-id.img.susercontent.com/file/id-11134207-7rbk1-m8re2ff6lbsya3@resize_w450_nl.webp',
+            },
+            {
+              title: '8. Jeans Wanita High Waist Longgar - Model Wide Leg dengan Sentuhan Renda yang Feminin',
+              desc: 'Denim Korean, Retro, Street Style',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/1BMBBoAHIn',
+              image: 'https://down-id.img.susercontent.com/file/id-11134207-8224x-mjghap9n0zr743@resize_w450_nl.webp',
+            },
+            {
+              title: '9. Celana Jeans Wanita High Waist Longgar Celana jeans panjang wanita model wide leg',
+              desc: 'Denim Korean Style',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/9V1J75oi97',
+              image: 'https://down-id.img.susercontent.com/file/id-11134207-8224s-mghoodrlc74e12@resize_w450_nl.webp',
+            },
+            {
+              title: '10. SKOUTWEAR | Rania Dress Coquette',
+              desc: 'katun, polos, tanpa lengan',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/W6UNvls21',
+              image: 'https://down-id.img.susercontent.com/file/id-11134207-81ztg-mq4pbvo18wleb2@resize_w450_nl.webp',
+            },
+            {
+              title: '11. Dress Slim Body Suit Dress Coquette',
+              desc: 'Cocok Untuk ke acara',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/30npMUDnHv',
+              image: 'https://down-id.img.susercontent.com/file/sg-11134201-7rept-m2yx1onpdrxj4d@resize_w450_nl.webp',
+            },
+            {
+              title: '12. Gaun Bunga Elegan',
+              desc: 'Cocok Untuk Date Ke taman bareng pacar',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/6q0XvTvbHe',
+              image: 'https://down-id.img.susercontent.com/file/sg-11134201-7rbn3-lnb8zv9rq3ia57@resize_w450_nl.webp',
+            },
+            {
+              title: '13. Daria Oneset OOTD Garden Party Solf Pink Kekinian',
+              desc: 'Kemeja Salur Crop, Rok Flower, Hijab',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/2BEiMloge8',
+              image: 'https://down-id.img.susercontent.com/file/id-11134207-81ztf-mrbd7a26yk1s97@resize_w450_nl.webp',
+            },
+            {
+              title: '14. Dress Rok Panjang Motif Bunga Manis Dua Warna Pinggang Ramping ',
+              desc: 'Setelan Dua Potong Dress Suspender + Cardigan, ',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/2BEiMloge8',
+              image: 'https://down-id.img.susercontent.com/file/sg-11134201-7rdyc-mdcre77fcuvi9f@resize_w450_nl.webp',
+            },
+            {
+              title: '15. Rafella one set rayon rempel',
+              desc: 'Setelan Wanita Dayli Outfit',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/7VGFA2SkR6',
+              image: 'https://down-id.img.susercontent.com/file/id-11134207-822wt-mp2qnjz948b1c2@resize_w450_nl.webp',
+            },
+            {
+              title: '16. Atasan Wanita CARDI MARRA Korean Styles',
+              desc: 'Polos, Lengan Panjang',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/8V8nmGKeeV',
+              image: 'https://down-id.img.susercontent.com/file/id-11134207-822wq-mpi03dao8dtt85@resize_w450_nl.webp',
+            },
+            {
+              title: '17. Susana ID Dress Fairy Bordir Emroidery Korean Style',
+              desc: 'Sifon, Chino, Korean, Retro',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/5focPAkDDU',
+              image: 'https://down-id.img.susercontent.com/file/sg-11134201-7r98o-lkql84y0i8idca@resize_w450_nl.webp',
+            },
+            {
+              title: '18. Atasan Rajut Wanita Batwing Premium ',
+              desc: 'Outer Rajut Oversize Elegan Korean Style',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/70K00Pgis0',
+              image: 'https://down-id.img.susercontent.com/file/id-11134207-81ztd-mr47pqdu8dfl9a@resize_w450_nl.webp',
+            },
+            {
+              title: '19. Atasan Wanita HALTER TOP Polka Korean Styles ',
+              desc: 'Katun, Polkadot, Korean',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/112mrbgRoy',
+              image: 'https://down-id.img.susercontent.com/file/sg-11134201-823pv-morri652q7ta65@resize_w450_nl.webp',
+            },
+            {
+              title: '20. DEER FASHION - LACHEL Balloon Halter  ',
+              desc: 'Top Atasan Wanita, Basic, Korean, Minimalis, Seksi, Street Style',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/6fh9c4xOkb',
+              image: 'https://down-id.img.susercontent.com/file/id-11134207-822ws-mn195pvcnm6ed0@resize_w450_nl.webp',
+            },
+            {
+              title: '21. Rok Panjang Wanita Korean Style ',
+              desc: 'Maxi Rimple Layer Ruffle Flowy Premium Layer Susun Bangkok',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/1BMD423nRW',
+              image: 'https://down-id.img.susercontent.com/file/id-11134207-8224o-mketi0ml34snbe@resize_w450_nl.webp',
+            },
+            {
+              title: '22. Rok Plisket Panjang Korea Style ',
+              desc: 'Warna Buat Fashion Kesan Elegan',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/1qbtrKyl18',
+              image: 'https://down-id.img.susercontent.com/file/id-11134207-822wu-mpak54iue8e821@resize_w450_nl.webp',
+            },
+            {
+              title: '23. ATASAN WANITA MODEL PITA TOP RIBBON',
+              desc: 'ATASAN WANITA TOP KOREA MODEL PITA ATASAN KNIT SABRINA PITA PRINCESS',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/qjMfjJaxc',
+              image: 'https://down-id.img.susercontent.com/file/id-11134207-7rasa-m23ddtq07fkg75@resize_w450_nl.webp',
+            },
+            {
+              title: '23. MYCASSI Atasan Tanpa Lengan Wanita Floral Halter Sleeveless',
+              desc: 'Top Atasan Tanktop Wanita Kekinian',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/BTfslseHG',
+              image: 'https://down-id.img.susercontent.com/file/sg-11134201-8261t-mjyq73dkpi4k4a@resize_w450_nl.webp',
+            },
+            {
+              title: '24. Gaun Sifon Manis Motif Bunga Leher Persegi',
+              desc: 'Desain Prancis Cinta Pertama Pinggang Tinggi',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/4AzoeAcD2T',
+              image: 'https://down-id.img.susercontent.com/file/id-11134207-7ra0s-mc7j8ugjfe3jf3@resize_w450_nl.webp',
+            },
+            {
+              title: '25. ANTHEA - Maharani One Set Vest',
+              desc: 'Setelan Wanita Atasan Vest Kombimasi Renda',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/8plunu6OjA',
+              image: 'https://down-id.img.susercontent.com/file/id-11134207-81ztp-ms5h33af0cu85d@resize_w450_nl.webp',
+            },
+          ],
+        },
+        {
+          id: 'kids',
+          name: 'Kids Outfit ',
+          // Contoh menggunakan format .webp
+          icon: '<img src="kids-wear.webp" class="w-5 h-5 object-contain" />',
+          items: [
+            {
+              title: '1. MEIJIAOFFICIAL SETELAN ANAK PEREMPUAN',
+              desc: 'EMILY/ ANAK REMAJA/KOREAN STYLE',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/5VVCCyhwyq',
+              image: 'https://down-ws-id.img.susercontent.com/id-11134207-7r98p-lq3ab66faouo0d.webp',
+            },
+            {
+              title: '2. Little Loen - Karina Set - Baju Anak Perempuan',
+              desc: 'Setelan Anak Perempuan | Baju Anak Perempuan Korean',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/1LfdFOmNI5',
+              image: 'https://down-ws-id.img.susercontent.com/id-11134207-822wg-mop2r9b6w4cu7b.webp',
+            },
+            {
+              title: '3. ELSY - Setelan Anak Perempuan Minji 1-6th',
+              desc: 'Model Tali, Outfit Anak Cewek Kekinian',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/8pleBKMa3F',
+              image: 'https://down-ws-id.img.susercontent.com/id-11134207-8224r-mjvc60vh8cu9b8.webp',
+            },
+            {
+              title: '4. Setelan Anak Perempuan Minji 1-6th',
+              desc: 'Model Tali, Outfit Anak Cewek',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/7pt6zjeTGH',
+              image: 'https://down-ws-id.img.susercontent.com/id-11134207-822wm-mo1vi5smaght17.webp',
+            },
+            {
+              title: '5. Setelan Anak Perempuan Plaid Top Tali + Celana Jeans Pendek',
+              desc: 'Outfit Anak Cewek fashionable Usia 2-6 th',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/2Vrae3IMEk',
+              image: 'https://down-ws-id.img.susercontent.com/id-11134211-822wq-mmscwffjvnk0f5.webp',
+            },
+            {
+              title: '6. Sweetie Bloom-Setelan Anak Perempuan 1-9 Tahun',
+              desc: 'Rompi Denim dengan Detail Renda Set 2 Potong Gaya',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/3LQheY9zUy',
+              image: 'https://down-ws-id.img.susercontent.com/sg-11134201-8262w-mj9krove9ybkee.webp',
+            },
+            {
+              title: '7. Sweetie Bloom-Setelan Rompi Denim Anak Perempuan ',
+              desc: 'Usia 1-9 Tahun Hiasan Renda Atasan Tanpa Lengan',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/9peFZatJKZ',
+              image: 'https://down-ws-id.img.susercontent.com/sg-11134201-8260t-mj9kuye6szcw86.webp',
+            },
+            {
+              title: '8. LALEA Dress anak perempuan katun bunga renda lucu cantik',
+              desc: 'Usia 1-5 Tahun Hiasan Renda Atasan Tanpa Lengan',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/4Vcl2E97Fm',
+              image: 'https://down-ws-id.img.susercontent.com/id-11134207-81ztk-mr5adgz203kc68.webp',
+            },
+            {
+              title: '9. Hampers Newborn Set PREMIUM - Baby Hampers Premium',
+              desc: 'Kado New Born Hampers Bayi Kado Bayi GORGIEBABY',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/6L4Zzt2fiu',
+              image: 'https://down-ws-id.img.susercontent.com/id-11134207-7r991-ly3udc53b40g38.webp',
+            },
+          ],
+        },
+        {
+          id: 'makeup',
+          name: 'Makeup & Skincare',
+          // Contoh menggunakan format .webp
+          icon: '<img src="lipstick.webp." class="w-5 h-5 object-contain" />',
+          items: [
+            {
+              title: '1. Eyeshadow Palette Matte Shimmer High Pigment Silky Texture',
+              desc: 'FOCALLURE 8-color',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/6q0ZBaA8py',
+              image: 'https://down-id.img.susercontent.com/file/id-11134207-81zte-mrsmswnu4ruu81@resize_w450_nl.webp',
+            },
+            {
+              title: '2. Blush & Go Powder|Blush On Powder',
+              desc: 'Hanasui Perfect Cheek, Natural Radiant Finish Melembabkan Cerah Antioksidan',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/60RSC1HhFs',
+              image: 'https://down-id.img.susercontent.com/file/id-11134207-81ztm-msc58sx7jaq0eb@resize_w450_nl.webp',
+            },
+            {
+              title: '3. Glad2Glow 2in1 Perfect Pair Cushion Powder Foundation Waterproof Make Up',
+              desc: 'Setting BB Cream Tahan Tahan 12Jam',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/2qUQQ99n3C',
+              image: 'https://down-id.img.susercontent.com/file/sg-11134201-824ip-mphkto9jkf0u6c@resize_w450_nl.webp',
+            },
+          ],
+        },
+        {
+          id: 'shoes',
+          name: 'Shoes & Sandals',
+          icon: '<img src="shoe.webp" class="w-5 h-5 object-contain" />',
+          items: [
+            {
+              title: '1. kaos kaki pita cotton premium korea style',
+              desc: 'Aira Page - coquette pink bow sock',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/3LQfmzL9Z7',
+              image: 'https://down-bs-id.img.susercontent.com/id-11134207-81zte-mf9qtzmrzuh8a0.webp',
+            },
+            {
+              title: '2. Rowey Sepatu Flat Shoes Wanita Sepatu Manis Dan Elegant Jenifer',
+              desc: 'Kulit, Kasual, Tanpa Hak',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/BTe05tjg8',
+              image: 'https://down-ws-id.img.susercontent.com/id-11134207-7ra0i-md77njoy1w102b.webp',
+            },
+            {
+              title: '3. sepatu sandal flatshoes wanita sandal pesta brukat ',
+              desc: 'Kulit, Kasual, Tanpa Hak',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/9pe9UvOu3R',
+              image: 'https://down-bs-id.img.susercontent.com/sg-11134201-824hq-mpfq7bwcg6bv9e.webp',
+            },
+            {
+              title: '4. sepatu sandal flatshoes wanita sandal pesta brukat ',
+              desc: 'Flat Heel 1cm, Tali, sandal flatsohes',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/1ADmkXcUJ',
+              image: 'https://down-bs-id.img.susercontent.com/id-11134207-82252-mk0g6lc5r6rm14.webp',
+            },
+            {
+              title: '5. Oberklast KAIA Flat Shoes Wanita',
+              desc: 'Mary Jane Casual | Sol Karet Anti Licin | Nyaman Seharian',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/3g3W9R2vk8',
+              image: 'https://down-bs-id.img.susercontent.com/id-11134207-81ztc-mr2kmdnt6mfaa6.webp',
+            },
+            {
+              title: '6. Sandal Pantai Wanita Sandal EVA Tebal Anti-Selip',
+              desc: 'Sandal Pantai Wanita',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/20vIAEHrPq',
+              image: 'https://down-id.img.susercontent.com/file/id-11134207-8224y-mgyj3nhrp79l8d@resize_w450_nl.webp',
+            },
+            {
+              title: '7. SHOECORNERID - BOWIE Pink Velvet',
+              desc: 'Sole Handmade Eva Sole with 3,5cm Platform Non Slip',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/5focQxecym',
+              image: 'https://down-id.img.susercontent.com/file/id-11134207-7r98v-lvoho25s2wie4d@resize_w450_nl.webp',
+            },
+            {
+              title: '8. VISORA - Nacre Sandal Flat Wanita Polkadot Nyaman Anti Slip',
+              desc: 'Ga licin, nyaman, bagus bangett ',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/8KpTbBDrFY',
+              image: 'https://down-id.img.susercontent.com/file/id-11134207-822wo-mp8hb9cqosge47@resize_w450_nl.webp',
+            },
+            {
+              title: '9. Sepatu Flat Shoes Beige Wanita Mary Jane Tali Loafers ',
+              desc: 'Santai Ringan Karet Empuk Nyaman& Trendi',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/9peHO49SB3',
+              image: 'https://down-id.img.susercontent.com/file/id-11134207-7ra0j-mdcy6nib6j79e1@resize_w450_nl.webp',
+            },
+          ],
+        },
+        {
+          id: 'parfume',
+          name: 'parfume',
+          icon: '<img src="sakura.webp" class="w-5 h-5 object-contain" />',
+          items: [
+            {
+              title: 'item not found',
+              desc: '4.0.4',
+              platform: 'shopee',
+              url: '//',
+              image: '//',
+            },
+          ],
+        },
+        {
+          id: 'bags',
+          name: 'bags',
+          icon: '<img src="purse.webp" class="w-5 h-5 object-contain" />',
+          items: [
+            {
+              title: '1. Tas Kanvas Dua Sisi Bergaya Kasual Korea',
+              desc: 'Untuk Wanita Tas Bahu Berkapasitas Besar Tas Komuter Bergaya Kampus',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/4VcdAX4mK9',
+              image: 'https://down-bs-id.img.susercontent.com/sg-11134201-824gi-mpp55w18quby5d.webp',
+            },
+            {
+              title: '2. Tas Fashion Tas Kekinian Tas Hiasan Pita Yans Collections',
+              desc: 'MATERIAL BELUDRU SIZE LENGTH 19 HEIGHT 16 DEPTH 4 STRAP 108 WEIGHT 360GR',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/5focQoMkJN',
+              image: 'https://down-aka-id.img.susercontent.com/1341cfdc6737ca6f5bf0f1feb7d97759.webp',
+            },
+            {
+              title: '3. Sevine Kiora Sling Bag Bundling Bag Charm Rajut',
+              desc: 'Gantungan Sekolah Tas Cewek Korean Style Wanita Resleting Ganci',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/40gMYx6OvL',
+              image: 'https://down-id.img.susercontent.com/file/id-11134207-81ztc-mrvea02s3nyf6f@resize_w450_nl.webp',
+            },
+            {
+              title: '4. Onebear Ransel wanita lucu Ransel kuliah Verlaboite Versatile',
+              desc: 'Schoolbag College Bow Bow Cute Girl Backpack SMA Backpack',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/6Akr8nOPCh',
+              image: 'https://down-aka-id.img.susercontent.com/id-11134207-81ztk-msjo5ldkvnd2aa.webp',
+            },
+            {
+              title: '5. Tote Bag Rajut Jerami Motif Bunga Veronica ',
+              desc: 'Edition Gaya Korea Tas Wanita Jalan Jalan Kuliah',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/7fZevWZabs',
+              image: 'https://down-aka-id.img.susercontent.com/id-11134207-7rask-m14j6ziisqtue6.webp',
+            },
+            {
+              title: '6. HONYAN Tas Wanita Coquette Shoulder Bag',
+              desc: 'Tas Selempang Wanita Fashion Kekinian',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/4LJCxM5hzt',
+              image: 'https://down-ws-id.img.susercontent.com/id-11134207-81ztj-msutdvw6x2bs8c.webp',
+            },
+            {
+              title: '8. HONYAN Tas Wanita Coquette Shoulder Bag',
+              desc: 'Tas Selempang Wanita Fashion Kekinian',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/7fZevS6gMu',
+              image: 'https://down-ws-id.img.susercontent.com/id-11134207-822wi-mn4e446z198i13.webp',
+            },
+            {
+              title: '9. BSOFTLY Coquette Tote Bag Cute Floral',
+              desc: 'Tas Selempang - Tas Kuliah',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/3LQflRqRHG',
+              image: 'https://down-ws-id.img.susercontent.com/id-11134207-81ztf-meqlg65pov0i56.webp',
+            },
+            {
+              title: '10. Coquette Polka Bag By Store Zidan CollectionTas',
+              desc: 'Selempang Wanita Mini Muat Hp Dompet Lipat',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/6q0XvlnZbg',
+              image: 'https://down-ws-id.img.susercontent.com/id-11134207-81zte-mqzxci8f395322.webp',
+            },
+            {
+              title: '11. Tas Bordir Wanita Gaya Vintage RAINSMORE',
+              desc: 'Tas Selempang & Tangan Model Bucket Unik,',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/50YtkKIhyV',
+              image: 'https://down-ws-id.img.susercontent.com/id-11134207-822wr-mohyru3vz21bb4.webp',
+            },
+            {
+              title: '12. En-Ji Gema Shoulderbag Wanita',
+              desc: 'casual, formal',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/3g3W9LnyC8',
+              image: 'https://down-ws-id.img.susercontent.com/sg-11134201-824iu-mpkr6nsip0cv34.webp',
+            },
+          ],
+        },
+        {
+          id: 'tumblr',
+          name: 'Tumblr',
+          icon: '<img src="water-bottle.webp" class="w-5 h-5 object-contain" />',
+          items: [
+            {
+              title: '1. CIVAGO (30oz/887ml) Mug Sedotan Termal untuk Wanita',
+              desc: 'Mug Stainless Steel Kapasitas Besar, Cocok untuk Mobil dan Dibawa Saat Bepergian',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/2qUPbq2AfR',
+              image: 'https://down-id.img.susercontent.com/file/id-11134207-7rbk4-m9bdwfv46l5ef4@resize_w450_nl.webp',
+            },
+            {
+              title: '2. Tumbler Pinky Marie Cat. Tahan Panas dan Dingin. 304 Stainless',
+              desc: 'Steel Mug 1200ML Coffee Cup Sport Thermos Mug Panas Untuk Teh, Susu',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/20vIBxxGQ4',
+              image: 'https://down-ws-id.img.susercontent.com/id-11134207-822wi-moi4v0i83thc9b.webp',
+            },
+            {
+              title: '3. LOTOMOTO Tumbler Stainless 720 ML',
+              desc: 'Mug Kopi dengan Portable Aesthetic Termos Lucu Tas Tahan Panas',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/9052Wk2Fvc',
+              image: 'https://down-ws-id.img.susercontent.com/id-11134207-822wt-mop5ktmeobuoa1.webp',
+            },
+            {
+              title: '4. LOTOMOTO Tumbler Stainless 720 ML',
+              desc: 'Mug Kopi dengan Portable Aesthetic Termos Lucu Tas Tahan Panas',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/9052Wk2Fvc',
+              image: 'https://down-ws-id.img.susercontent.com/id-11134207-822wt-mop5ktmeobuoa1.webp',
+            },
+            {
+              title: '5. LINBAI Flask 17oz Bow Tie Print Ceramic Liner Coffee ',
+              desc: 'Mug with Straw Vacuum Insulated Tumbler Hot and Cold',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/1BMBCJK1se',
+              image: 'https://down-ws-id.img.susercontent.com/id-11134207-8224t-mggnb8k9tvyhe7.webp',
+            },
+            {
+              title: '6. MODOFO Tumbler Stainless 1000ml Tumblr Tahan Dingin 24 Jam ',
+              desc: 'Aesthetic Sedotan Tambler Botol Minum 1 L',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/80CVKomhdC',
+              image: 'https://down-ws-id.img.susercontent.com/id-11134207-822wp-mndr81nen18h40.webp',
+            },
+            {
+              title: '7. Tyeso Tumbler Floral Blush Collection Insulated',
+              desc: 'Soft Pink Stainless Steel Vacuum Cup BPA FREE',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/60RQvNPcWn',
+              image: 'https://down-ws-id.img.susercontent.com/sg-11134201-820n4-mnxopdngjwn666.webp',
+            },
+          ],
+        },
+        {
+          id: 'bodycare',
+          name: 'Body Care',
+          icon: '<img src = "lotion.webp" class="w-5 h-5 object-contain" />',
+          items: [
+            {
+              title: 'item not found',
+              desc: '4.0.4',
+              platform: 'shopee',
+              url: '//',
+              image: '//',
+            },
+          ],
+        },
+        {
+          id: 'hair',
+          name: 'Hair Care',
+          icon: '<img src="hair-wash.webp" class="w-5 h-5 object-contain" />',
+          items: [
+            {
+              title: 'item not found',
+              desc: '4.0.4',
+              platform: 'shopee',
+              url: '//',
+              image: '//',
+            },
+          ],
+        },
+        {
+          id: 'jewelry',
+          name: 'Jewelry',
+          icon: '<img src="jewelry.webp" class="w-5 h-5 object-contain" />',
+          items: [
+            {
+              title: 'item not found',
+              desc: '4.0.4',
+              platform: 'shopee',
+              url: '//',
+              image: '//',
+            },
+          ],
+        },
+        {
+          id: 'accessories',
+          name: 'Accessories',
+          icon: '<img src="hair-clip.webp" class="w-5 h-5 object-contain" />',
+          items: [
+            {
+              title: 'Kalung Pita Pink Trendi',
+              desc: 'Aksesoris Siswa Gaya Sweet & Cool',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/50YtYDb7eF?share_channel_code=1',
+              image: 'https://down-id.img.susercontent.com/file/sg-11134201-825a2-mr76efz5mih1a7@resize_w450_nl.webp',
+            },
+            {
+              title: 'ED - 2PCS IKAT RAMBUT SCRUNCHIE WANITA RUFFLE KOREAN FASHION',
+              desc: 'KUNCIRAN RAMBUT PITA COQUETTE AESTHET',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/50YtYDb7eF?share_channel_code=1',
+              image: 'https://down-id.img.susercontent.com/file/sg-11134201-825a2-mr76efz5mih1a7@resize_w450_nl.webp',
+            },
+          ],
+        },
+
+        {
+          id: 'bathroom',
+          name: 'Bathroom Essentials',
+          icon: '<img src="bath.webp" class="w-5 h-5 object-contain" />',
+          items: [
+            {
+              title: 'item not found',
+              desc: '4.0.4',
+              platform: 'shopee',
+              url: '//',
+              image: '//',
+            },
+          ],
+        },
+        {
+          id: 'kitchen',
+          name: ' Kitchen Essentials',
+          icon: '<img src="kitchen.webp" class="w-5 h-5 object-contain" />',
+          items: [
+            {
+              title: '1. LIVINSTORE Paddington Set Mug Aesthetic',
+              desc: 'Korean Style Tea Cup/Cangkir Teh Vintage/Cangkir Teh Mewah',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/qjMftFYWG',
+              image: 'https://down-ws-id.img.susercontent.com/id-11134201-81ztj-mrth5c9ttjb578.webp',
+            },
+            {
+              title: '2. LIVINSTORE Strawcat Series Mangkok Keramik',
+              desc: 'Korea Aesthetic Estetik Putih Bentuk Motif Props Properti',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/4LJEqFrohH',
+              image: 'https://down-ws-id.img.susercontent.com/sg-11134201-7ra1w-mbj7la9wfu2d1b.webp',
+            },
+            {
+              title: '3. [SNI] HOMESTUFF Mangkok Keramik Fairy Pink Premium',
+              desc: 'Mangkok Soup / Plate Keramik 20cm',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/2LYASJJUrc',
+              image: 'https://down-ws-id.img.susercontent.com/id-11134207-8224r-mh1epwh76az1c1.webp',
+            },
+            {
+              title: '4. NIZEHOME - Tempat Sendok Garpu Putar Aestetik dengan Tutup',
+              desc: 'Tempat garpu cantik dan lucu',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/5AsLpeqhu8',
+              image: 'https://down-ws-id.img.susercontent.com/id-11134207-822wg-mnsii6c7tlab8b.webp',
+            },
+            {
+              title: '5. Van_furni Rak Dapur Dorong | Rak Buku Plastik Serbaguna',
+              desc: 'Dengan Roda Portable | Rak Troli Toilet',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/5LBm1uqWos',
+              image: 'https://down-ws-id.img.susercontent.com/id-11134207-81zte-mevpzhouz30i62.webp',
+            },
+          ],
+        },
+        {
+          id: 'homedecor',
+          name: ' Home Decor',
+          icon: '<img src="living-room.webp" class="w-5 h-5 object-contain" />',
+          items: [
+            {
+              title: '1. Flower pot | Pot Bunga Kawat bulu',
+              desc: '| Gift wisuda | Pot Bunga Lucu | Hiasan Bunga lucu |',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/AUttptVy76',
+              image: 'https://down-ws-id.img.susercontent.com/id-11134207-81zti-mey7efjsf6rl13.webp',
+            },
+            {
+              title: '2. Selimut Halus Dewasa Salur Polos/Motif',
+              desc: 'Emboss Aesthetic 180x200/200x230 New Premium Quality',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/1gIRclpz2y',
+              image: 'https://down-ws-id.img.susercontent.com/id-11134207-82251-mk0nxbuwcagzf0.webp',
+            },
+            {
+              title: '3. JamDinding Ukir HOME Sweet Hme Bunga Matahari ',
+              desc: 'Hiasan Dinding Ruang Tamu Kamar tidur',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/6q0XwFfr2j',
+              image: 'https://down-ws-id.img.susercontent.com/id-11134207-7rbk9-m8wyxaj2vvuqdd.webp',
+            },
+            {
+              title: '4. JMocorie - Venellie Mini Coquette Trash Can',
+              desc: 'Coquette Ribbon Trash Bin / Tempat Sampah Coquette Kamar',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/6q0Xx3CaD0',
+              image: 'https://down-ws-id.img.susercontent.com/id-11134207-822wr-mmyw7fdejym897.webp',
+            },
+            {
+              title: '5. Kotak Tisu Kue Coquette Style',
+              desc: 'Tissue Box Kotak Tisu Warna Pastel',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/Ln4D9riN7',
+              image: 'https://down-ws-id.img.susercontent.com/sg-11134201-8227q-mhbtnnd63t3fa8.webp',
+            },
+            {
+              title: '6. Hiasan dinding kamar cewek aesthetic',
+              desc: 'Poster dinding quotes pink Pajangan - Wall decor',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/AUtqjcxumg',
+              image: 'https://down-ws-id.img.susercontent.com/id-11134207-82252-mgflpw3769e298.webp',
+            },
+            {
+              title: '7. Bantal Bunga Mainan Tanaman Boneka',
+              desc: 'Bantal Dekorasi Sofa Aesthetic',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/2BEioYbOk7',
+              image: 'https://down-ws-id.img.susercontent.com/id-11134207-7ra0p-mcbxzkccm5vmb4.webp',
+            },
+            {
+              title: '8. Hiasan Dinding Natural Boho Bohemian',
+              desc: 'Retro Wall Art Block Lines Dekorasi Ruang Tamu Aesthetic RR',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/5AsLoB57ED',
+              image: 'https://down-ws-id.img.susercontent.com/id-11134207-7rask-m44jvtdojqgq34.webp',
+            },
+            {
+              title: '9. Cermin Stand Mirorr Flower Kaca Meja Rias Serbaguna',
+              desc: 'cermin meja rias lucu',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/4AzocMUnAW',
+              image: 'https://down-ws-id.img.susercontent.com/id-11134207-7rbk7-m73eomurbvxo56.webpp',
+            },
+            {
+              title: '10. Bantal Duduk  Biskuit Bulat / Bantal Sofa',
+              desc: 'Alas Duduk Bentuk Biskuit / Biscuit Pillow Bahan plush',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/7AdQDFOI11',
+              image: 'https://down-ws-id.img.susercontent.com/id-11134207-7rbkc-m6viv4b6ldil8c.webp',
+            },
+
+            {
+              title: '11. POL - Kursi Mini Bunga Katrol Dengan Roda',
+              desc: 'kursi roda mini lucu ',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/3LQheNLJDD',
+              image: 'https://down-ws-id.img.susercontent.com/id-11134207-7ras9-m0fngl0twy74d4.webp',
+            },
+            {
+              title: '12. Kreasidekor Poster Frame Dekorasi Dinding Set 6 ',
+              desc: 'Wall Art Aesthetic Pink Floral Love Room Decor',
+              platform: 'shopee',
+              url: 'https://s.shopee.co.id/4fw5FB311O',
+              image: 'https://down-ws-id.img.susercontent.com/sg-11134201-824ji-mpk1uu1c7myp2d.webp',
+            },
+          ],
+        },
+      ];
+
+      let activeCategory = null;
+
+      function renderCategories() {
+        const container = document.getElementById('categoryContainer');
+        container.innerHTML = '';
+
+        categoryData.forEach((cat) => {
+          const isOpen = cat.id === activeCategory;
+
+          const categoryWrapper = document.createElement('div');
+          categoryWrapper.className = 'bg-white rounded-2xl border border-slate-200/70 shadow-sm overflow-hidden transition-all duration-300';
+
+          const button = document.createElement('button');
+          button.className = `w-full flex items-center justify-between p-3.5 md:p-4 text-left font-bold transition-all duration-300 ${isOpen ? 'bg-pink-50 text-pink-600 border-b border-pink-100' : 'bg-white text-slate-800 hover:bg-slate-50'}`;
+
+          // Perhatikan bagian ${cat.icon} di bawah ini memanggil langsung tag <img> yang ada di data atas
+          button.innerHTML = `
+                        <div class="flex items-center gap-3">
+                          <div class="w-8 h-8 md:w-9 md:h-9 rounded-xl flex items-center justify-center ${isOpen ? 'bg-pink-100 shadow-sm' : 'bg-slate-100'}">
+                            ${cat.icon}
+                          </div>
+                          <span class="text-xs md:text-sm">${cat.name}</span>
+                        </div>
+                        <div class="w-6 h-6 md:w-7 md:h-7 rounded-full flex items-center justify-center transition-transform duration-300 ${isOpen ? 'rotate-180 text-pink-600 bg-pink-100/60' : 'text-slate-400'}">
+                          <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </div>
+                      `;
+
+          button.onclick = () => {
+            activeCategory = isOpen ? null : cat.id;
+            renderCategories();
+          };
+
+          categoryWrapper.appendChild(button);
+
+          if (isOpen) {
+            const itemsContainer = document.createElement('div');
+            itemsContainer.className = 'p-3 space-y-3 bg-slate-50/50';
+
+            if (cat.items.length === 0) {
+              itemsContainer.innerHTML = `<p class="text-center text-slate-400 py-4 text-xs">Belum ada link di kategori ini.</p>`;
+            } else {
+              cat.items.forEach((item) => {
+                const isShopee = item.platform.toLowerCase() === 'shopee';
+                const badgeBg = isShopee ? 'bg-orange-100 text-orange-700 border-orange-200' : 'bg-slate-900 text-white border-slate-700';
+                const badgeText = isShopee ? 'Shopee' : 'TikTok Shop';
+                const badgeIcon = isShopee ? 'fa-bag-shopping' : 'fa-tiktok';
+
+                const card = document.createElement('a');
+                card.href = item.url;
+                card.target = '_blank';
+                card.className = 'flex items-center gap-3.5 bg-white p-3 rounded-xl border border-slate-200/70 shadow-sm hover:shadow-md hover:border-pink-300 transition-all duration-300 group block';
+
+                card.innerHTML = `
+                              <div class="relative w-14 h-14 md:w-16 md:h-16 flex-shrink-0">
+                                <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover rounded-lg border border-slate-100 group-hover:scale-105 transition duration-300">
+                              </div>
+                              <div class="flex-grow min-w-0">
+                                <div class="flex items-center gap-2 mb-1">
+                                  <span class="text-[9px] font-bold px-2 py-0.5 rounded-full border ${badgeBg}">
+                                    <i class="fa-brands ${badgeIcon} mr-1"></i>${badgeText}
+                                  </span>
+                                </div>
+                                <h2 class="text-xs md:text-sm font-bold text-slate-800 truncate group-hover:text-pink-600 transition">${item.title}</h2>
+                                <p class="text-[11px] text-slate-500 line-clamp-1 mt-0.5">${item.desc}</p>
+                              </div>
+                              <div class="flex-shrink-0 text-slate-300 group-hover:text-pink-500 pr-1 transition">
+                                <i class="fa-solid fa-chevron-right text-xs"></i>
+                              </div>
+                            `;
+                itemsContainer.appendChild(card);
+              });
+            }
+
+            categoryWrapper.appendChild(itemsContainer);
+          }
+
+          container.appendChild(categoryWrapper);
+        });
+      }
+
+      renderCategories();
+    </script>
+  </body>
+</html>
