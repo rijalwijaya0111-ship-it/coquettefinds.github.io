@@ -818,9 +818,9 @@
 
         categoryData.forEach((cat) => {
           const isOpen = cat.id === activeCategory;
-
           const categoryWrapper = document.createElement('div');
           categoryWrapper.className = 'bg-white rounded-2xl border border-slate-200/70 shadow-sm overflow-hidden transition-all duration-300';
+          categoryWrapper.dataset.categoryId = cat.id;
 
           const button = document.createElement('button');
           button.className = `w-full flex items-center justify-between p-3.5 md:p-4 text-left font-bold transition-all duration-300 ${isOpen ? 'bg-pink-50 text-pink-600 border-b border-pink-100' : 'bg-white text-slate-800 hover:bg-slate-50'}`;
@@ -841,6 +841,19 @@
           button.onclick = () => {
             activeCategory = isOpen ? null : cat.id;
             renderCategories();
+
+            if (activeCategory) {
+              requestAnimationFrame(() => {
+                const openedCategory = document.querySelector(`[data-category-id="${activeCategory}"]`);
+
+                if (openedCategory) {
+                  openedCategory.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start',
+                  });
+                }
+              });
+            }
           };
 
           categoryWrapper.appendChild(button);
